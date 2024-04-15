@@ -13,14 +13,14 @@ class User(Base):
     admin = Column(Boolean, nullable=False)
 
 
-    # @staticmethod
-    # def hash_password(password: str):
-    #     password = password.encode("utf-8")
-    #     return hashpw(password, gensalt(8))
+    @staticmethod
+    def hash_password(password: str):
+        password = password.encode("utf-8")
+        return hashpw(password, gensalt(8))
 
-    # @staticmethod
-    # def check_password(self, password: str):
-    #     return checkpw(
-    #         password=password.encode("utf-8"),
-    #         hashed_password=self.password.encode("utf8"),
-    #     )
+    @staticmethod
+    def check_password(password: str):
+        return checkpw(
+            password=password.encode("utf-8"),
+            hashed_password=self.password.encode("utf8"),
+        )

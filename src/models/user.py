@@ -1,28 +1,14 @@
 from pydantic import BaseModel
-from typing import Optional
+from uuid import uuid4
 
 class User(BaseModel):
+    id: str = uuid4().hex
     name: str
     email: str
-    hashed_password: str
+    password: str
     verified: bool
     admin: bool
 
 
     class Config:
         orm_mode = True
-
-# class UserCreate(UserBase):
-#     hashed_password: str
-
-
-# class User(UserBase):
-#     id: int
-#     verified: bool
-
-    
-
-# class UserUpdate(BaseModel):
-#     name: Optional[str] = None
-#     email: Optional[str] = None
-#     hashed_password: Optional[str] = None
