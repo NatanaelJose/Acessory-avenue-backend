@@ -20,4 +20,4 @@ class Addres(Base):
     updated_at = Column(TIMESTAMP, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
     deleted_at = Column(TIMESTAMP)
 
-    user = relationship("User", back_populates="addresses", cascade="all, delete-orphan")
+    user = relationship(User, back_populates="addresses", cascade="all, delete-orphan")
